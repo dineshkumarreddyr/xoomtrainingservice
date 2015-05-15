@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - xoomtrainings@localhost" uuid="fcd26016-51ca-43ef-80f6-ab238f9d196e">
+    <database-info product="MySQL" version="5.6.24-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="xoomtrainings"/>
+    <table name="xtcourses" schema="" catalog="xoomtrainings" type="TABLE">
+      <column name="xtcourseid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="xtcoursename" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="xtcourseshortdescp" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="xtcourseduration" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="xtenrolled" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="xtcourseimg" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="xtcourserating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="createddate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modifieddate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="xtcoursetype" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="xtcourseid"/>
+      <index name="xtcourseid_UNIQUE" unique="true" columns="xtcourseid"/>
+      <index name="xtcoursename_UNIQUE" unique="true" columns="xtcoursename"/>
+    </table>
+    <table name="xtusers" schema="" catalog="xoomtrainings" type="TABLE">
+      <column name="xtuserid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="xtuserfirstname" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="xtuserlastname" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="xtusernumber" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="xtuserindian" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
+      <column name="xtusercountry" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="xtusername" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="xtuseremail" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="xtuserpassword" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="createddate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="modifieddate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="xtuserid"/>
+      <index name="xtuseremail_UNIQUE" unique="true" columns="xtuseremail"/>
+      <index name="xtusername_UNIQUE" unique="true" columns="xtusername"/>
+    </table>
+    <procedure name="SP_GETCOURSES" schema="" catalog="xoomtrainings" type="1"/>
+    <procedure name="SP_LOGIN" schema="" catalog="xoomtrainings" type="1">
+      <prototype>
+        <parameter name="username" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+        <parameter name="userpassword" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="SP_XTCOURSES" schema="" catalog="xoomtrainings" type="1">
+      <prototype>
+        <parameter name="courseid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="coursename" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="shortdesc" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1" type="1" index="3"/>
+        <parameter name="duration" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="enrolled" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="5"/>
+        <parameter name="courselogo" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1" type="1" index="6"/>
+        <parameter name="courserating" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="7"/>
+        <parameter name="flag" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1" type="1" index="8"/>
+      </prototype>
+    </procedure>
+    <procedure name="SP_XTUSERS" schema="" catalog="xoomtrainings" type="1">
+      <prototype>
+        <parameter name="firstname" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+        <parameter name="lastname" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="phonenumber" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="userindian" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1" type="1" index="4"/>
+        <parameter name="country" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="username" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="6"/>
+        <parameter name="email" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="userpassword" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1" type="1" index="8"/>
+        <parameter name="flag" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1" type="1" index="9"/>
+      </prototype>
+    </procedure>
+  </data-source>
+</component>

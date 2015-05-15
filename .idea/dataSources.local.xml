@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - xoomtrainings@localhost" uuid="fcd26016-51ca-43ef-80f6-ab238f9d196e">
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <schema-pattern>xoomtrainings.*</schema-pattern>
+      <default-schemas>xoomtrainings.*</default-schemas>
+    </data-source>
+  </component>
+</project>
