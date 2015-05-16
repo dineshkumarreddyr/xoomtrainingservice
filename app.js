@@ -27,9 +27,9 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Max-Age', '86400');
 
-    //if(req.method.toLowerCase()==="options"){
-    //    res.sendStatus(200);
-    //}
+    if(req.method.toLowerCase()==="options"){
+        res.sendStatus(200);
+    }
     next();
 });
 
