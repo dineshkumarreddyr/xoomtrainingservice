@@ -28,7 +28,6 @@ exports.signup = function (req,res) {
                     }
                     else
                         res.send(err);
-
                 });
             connection.end();
         }
@@ -62,7 +61,6 @@ exports.signin = function (req,res) {
         console.log(exception);
     }
 };
-
 //Get List of courses
 exports.getcourselist = function(req,res) {
     try {
@@ -75,6 +73,19 @@ exports.getcourselist = function(req,res) {
         });
     }
     catch (exception) {
+        console.log(exception);
+    }
+};
+//Get List of countries
+exports.getCountry = function(req,res) {
+    try {
+        var connection = mysql.createConnection(dbConfig);
+        connection.connect();
+        connection.query('CALL `xoomtrainings`.`SP_GETCOUNTRY`();', function (error, response) {
+            if (!error)
+                res.send({"status": "success", "records": response[0]});
+        });
+    } catch (exception) {
         console.log(exception);
     }
 };
