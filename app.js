@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 //Referring the routes
 var home = require('./routes/home');
+var course = require('./routes/courselist');
 
 var app = express();
 
@@ -36,7 +37,7 @@ app.use(function (req, res, next) {
 //Adding the Restful API
 app.post('/signup',home.signup);
 app.post('/signin',home.signin);
-app.get('/courselist',home.getcourselist);
+app.get('/courselist', course.getcourselist);
 app.get('/countrylist',home.getCountry);
 
 // catch 404 and forward to error handler
