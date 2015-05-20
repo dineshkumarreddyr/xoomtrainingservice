@@ -102,3 +102,35 @@ lastname,phonenumber,userindian,country,username,email,userpassword,Now(),Now())
 END IF;
 END$$
 DELIMITER ;
+
+
+CREATE TABLE `coursedetails` (
+  `xtcousedetailid` int(11) NOT NULL AUTO_INCREMENT,
+  `xtcoursename` varchar(200) NOT NULL,
+  `xtcoursedescription` longtext,
+  `xtcoursestartdate` date NOT NULL,
+  `xtcoursedurationtype` varchar(100) NOT NULL,
+  `xtcourseduration` int(11) NOT NULL,
+  `xtcoursedays` longtext NOT NULL,
+  `xtcoursestarttime` time NOT NULL,
+  `xtcourseendtime` time NOT NULL,
+  `createddate` datetime DEFAULT NULL,
+  `modifieddate` datetime DEFAULT NULL,
+  `createduser` varchar(50) DEFAULT NULL,
+  `modifieduser` varchar(50) DEFAULT NULL,
+  `xtcourseid` int(11) NOT NULL,
+  PRIMARY KEY (`xtcousedetailid`),
+  UNIQUE KEY `xtcoursename_UNIQUE` (`xtcoursename`),
+  UNIQUE KEY `xtcourseid_UNIQUE` (`xtcourseid`),
+  CONSTRAINT `xtcourseid` FOREIGN KEY (`xtcourseid`) REFERENCES `xtcourses` (`xtcourseid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GETCOURSEDETAIL`(IN courseid int)
+BEGIN
+select * from `xoomtrainings`.`coursedetails` where xtcourseid=courseid;
+END$$
+DELIMITER ;
+
+
+
