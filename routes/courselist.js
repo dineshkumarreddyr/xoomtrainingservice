@@ -13,7 +13,6 @@ exports.getcourselist = function (req, res) {
         var connection = mysql.createConnection(config.module.dbConfig);
         connection.connect();
         connection.query('CALL xoomtrainings.SP_GETCOURSES();', function (err, records) {
-            console.log(err);
             if (!err) {
                 res.send({ "status": "success", "records": records[0] });
             }

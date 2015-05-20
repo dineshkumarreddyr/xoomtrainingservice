@@ -56,7 +56,6 @@ exports.signin = function (req, res) {
                 res.send({ "status": "error", "ecode": "d4", "emsg": "Password encryption failed" });
                 return;
             }
-            console.log(encryptedPassword);
             var connection = mysql.createConnection(config.module.dbConfig);
             connection.connect();
             connection.query("CALL xoomtrainings.SP_LOGIN('" + data.username + "','" + encryptedPassword + "');", function (err, rows) {
