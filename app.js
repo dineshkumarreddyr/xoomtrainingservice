@@ -42,6 +42,9 @@ app.get('/courselist', course.getcourselist);
 app.get('/countrylist', home.getCountry);
 //API CALL - Get course details
 app.post('/details', details.getCourseDetails);
+app.post('/courselite',details.getCourse);
+//Forgot Password
+app.post('/fpassword',home.forgotPassword);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
