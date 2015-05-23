@@ -112,9 +112,9 @@ exports.forgotPassword = function(req,res) {
         if (data != undefined) {
             var connection = mysql.createConnection(config.module.dbConfig);
             connection.connect();
-            connection.query('CALL 1xoomtrainings`.`SP_CHECKUSER(' + data.email + ')', function (error, records) {
+            connection.query('CALL xoomtrainings.SP_CHECKUSER("' + data.email + '");', function (error, records) {
                 if (!error) {
-                    if (records[0].length > 0 && records[0].emailaddress > 0) {
+                    if (records[0].length > 0 && records[0][0].email > 0) {
                         res.send({"status": "success"});
                     }
                 }
