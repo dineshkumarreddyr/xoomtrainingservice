@@ -64,10 +64,10 @@ exports.signin = function (req, res) {
                         res.send({ "status": "success", "records": rows[0] });
                     }
                     else
-                        res.send({ "status": "error", "ecode": "d2", "emsg": "Data does not exist" });
+                        res.send({ "status": "error", "ecode": "e2", "emsg": "Data does not exist" });
                 }
                 else
-                    res.send({ "status": "error", "ecode": "d3", "emsg": err.message });
+                    res.send({ "status": "error", "ecode": "e3", "emsg": err.message });
             });
             connection.end();
         }
@@ -102,5 +102,27 @@ exports.getCountry = function (req, res) {
         });
     } catch (exception) {
         console.log(exception);
+    }
+};
+
+//Forgot Password email
+exports.forgotPassword = function(req,res) {
+    var data = req.body;
+    try {
+        if (data != undefined) {
+            var connection = mysql.createConnection(config.module.dbConfig);
+            connection.connect();
+            connection.query('CALL 1xoomtrainings`.`SP_CHECKUSER(' + data.email + ')', function (error, records) {
+                if (!error) {
+                    if (records[0].length > 0 && records[0].emailaddress > 0) {
+                        res.send({"status": "success"});
+                    }
+                }
+            });
+            connection.close();
+        }
+    }
+    catch (e) {
+        console.log(e.message);
     }
 };
