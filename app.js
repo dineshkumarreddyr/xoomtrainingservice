@@ -32,7 +32,8 @@ app.use(function (req, res, next) {
     if (req.method.toLowerCase() === "options") {
         res.sendStatus(200);
     }
-    next();
+    else
+        next();
 });
 
 //Adding the Restful API
