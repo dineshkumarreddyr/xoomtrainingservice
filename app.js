@@ -41,11 +41,14 @@ app.post('/signup', home.signup);
 app.post('/signin', home.signin);
 app.get('/courselist', course.getcourselist);
 app.get('/countrylist', home.getCountry);
+app.post('/cartcount',home.savedCartCount);
 //API CALL - Get course details
 app.post('/details', details.getCourseDetails);
 app.post('/courselite',details.getCourse);
 //Forgot Password
 app.post('/fpassword',home.forgotPassword);
+//Saved Cart
+app.post('/savecart',details.saveCart);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
