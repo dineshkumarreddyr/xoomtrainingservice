@@ -126,3 +126,25 @@ exports.forgotPassword = function(req,res) {
         console.log(e.message);
     }
 };
+
+//Check and get the saved cart items
+exports.savedCartCount = function(req,res) {
+    var data = req.body;
+    try {
+        if (data != undefined) {
+            var connection = mysql.createConnection(config.module.dbConfig);
+            connection.connect();
+            connection.query('CALL xoomtrainings.SP_GETCARTCOUNT("' + data.userid + '");', function (error, records) {
+                if (!error) {
+                    if (records[0].length > 0) {
+                        res.send({"status": "success","records":records[0]});
+                    }
+                }
+            });
+            connection.close();
+        }
+    }
+    catch (e) {
+        console.log(e.message);
+    }
+};
