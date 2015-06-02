@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var home = require('./routes/home');
 var course = require('./routes/courselist');
 var details = require('./routes/coursedetails');
+var cart = require('./routes/cart');
 
 var app = express();
 
@@ -49,6 +50,9 @@ app.post('/courselite',details.getCourse);
 app.post('/fpassword',home.forgotPassword);
 //Saved Cart
 app.post('/savecart',details.saveCart);
+//Cart
+app.post('/cartdetails',cart.getCartDetails);
+app.post('/removeitem',cart.removeCart);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
