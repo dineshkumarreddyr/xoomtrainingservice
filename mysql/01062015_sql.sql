@@ -302,6 +302,61 @@ END IF;
 END$$
 DELIMITER ;
 
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GETCARTDETAILS`(IN userid int)
+BEGIN
+
+declare tbCount int default 0;
+
+Select count(*) into tbCount from information_schema.tables 
+where table_name='savedcart' and table_schema='xoomtrainings';
+
+if tbCount>0 then
+
+select cart.idsavedcart as savedcartid,
+		cart.transactionid as cartid,
+        cart.xtcourseid as courseid,
+        cart.xtuserid as userid,
+        course.xtcoursename as coursename,
+        course.xtcoursestartdate as coursestartdate,
+        course.xtcoursedurationtype as durationtype,
+        course.xtcourseduration as courseduration,
+        course.xtcoursedays as coursedays,
+        course.xtcoursestarttime as starttime,
+        course.xtcourseendtime as endtime,
+        maincourse.xtcoursename as maincoursename,
+        maincourse.xtinrprice as indianprice,
+        maincourse.xtusprice as usprice,
+        maincourse.xtcourseimg as courseimg
+         from `xoomtrainings`.`savedcart` cart 
+         inner join `xoomtrainings`.`coursedetails` course 
+         inner join `xoomtrainings`.`xtcourses` maincourse
+         on cart.xtcourseid = course.xtcourseid and cart.xtcourseid=maincourse.xtcourseid 
+         where cart.xtuserid=userid;
+
+end if;
+
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REMOVECART`(IN cartid int,IN userid int)
+BEGIN
+
+declare tbCount int default 0;
+
+select count(*) into tbCount from information_schema.tables where
+ table_name='savedcart' and table_schema='xoomtrainings';
+ 
+ if tbCount>0 then
+ delete from `xoomtrainings`.`savedcart` where xtuserid=userid and idsavedcart=cartid;
+ end if;
+
+END$$
+DELIMITER ;
+
+
+
 
 
 
