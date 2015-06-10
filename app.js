@@ -10,6 +10,7 @@ var home = require('./routes/home');
 var course = require('./routes/courselist');
 var details = require('./routes/coursedetails');
 var cart = require('./routes/cart');
+var myprofile = require('./routes/myprofile');
 
 var app = express();
 
@@ -53,6 +54,8 @@ app.post('/savecart',details.saveCart);
 //Cart
 app.post('/cartdetails',cart.getCartDetails);
 app.post('/removeitem',cart.removeCart);
+//My profile
+app.post('/profile',myprofile.getMyProfile);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
