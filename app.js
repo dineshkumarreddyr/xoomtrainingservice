@@ -56,6 +56,9 @@ app.post('/cartdetails',cart.getCartDetails);
 app.post('/removeitem',cart.removeCart);
 //My profile
 app.post('/profile',myprofile.getMyProfile);
+app.post('/uprofile',myprofile.updateProfile);
+app.post('/upass',myprofile.changePassword);
+app.post('/usercourses',myprofile.getUserRegisteredCourses);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
