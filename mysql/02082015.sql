@@ -103,7 +103,7 @@ CREATE TABLE `savedcart` (
   KEY `savedcartuserid_idx` (`xtuserid`),
   CONSTRAINT `savedcartcourseid` FOREIGN KEY (`xtcourseid`) REFERENCES `xtcourses` (`xtcourseid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `savedcartuserid` FOREIGN KEY (`xtuserid`) REFERENCES `xtusers` (`xtuserid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +112,7 @@ CREATE TABLE `savedcart` (
 
 LOCK TABLES `savedcart` WRITE;
 /*!40000 ALTER TABLE `savedcart` DISABLE KEYS */;
-INSERT INTO `savedcart` VALUES (26,'1vmsbicraiu9s14ct6d3hcp1p',15,2,NULL,NULL,'dinesh.rachumalla@hotmail.com','dinesh.rachumalla@hotmail.com','saved');
+INSERT INTO `savedcart` VALUES (37,'vcmicogjsywcx2pkwcr1hem7d',25,2,NULL,NULL,'dinesh.rachumalla@hotmail.com','dinesh.rachumalla@hotmail.com','saved'),(43,'2bcbq74rp0jtrsieqxntfklib',24,2,NULL,NULL,'dinesh.rachumalla@hotmail.com','dinesh.rachumalla@hotmail.com','saved');
 /*!40000 ALTER TABLE `savedcart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,7 +212,7 @@ CREATE TABLE `xtcourses` (
 
 LOCK TABLES `xtcourses` WRITE;
 /*!40000 ALTER TABLE `xtcourses` DISABLE KEYS */;
-INSERT INTO `xtcourses` VALUES (14,'SAP ABAP','Provides training and Placement','48',12500,'http://45.55.171.166:9545/images/sap.png',5,NULL,NULL,'recommended',340),(15,'PEGA','Pega training','32',43332,'http://45.55.171.166:9545/images/pega.png',4,NULL,NULL,'recommended',230),(16,'HADOOP-ADMINISTRATOR','Hadoop big data training','23',12400,'http://45.55.171.166:9545/images/hadoop-admin.png',5,NULL,NULL,'recommended',430),(17,'JAVA','Java J2EE','54',45000,'http://45.55.171.166:9545/images/java.png',5,NULL,NULL,'recommended',122),(18,'APACHE SPARK AND SCALA','Training and Placement','22',32200,'http://45.55.171.166:9545/images/apachespark.png',5,NULL,NULL,'popular',678),(19,'APACHE CASSANDRA','Developmet and learning','45',23000,'http://45.55.171.166:9545/images/cassandra.png',4,NULL,NULL,'popular',211),(20,'BIG DATA - HADOOP','big data learning','12',12000,'http://45.55.171.166:9545/images/hadoop.png',5,NULL,NULL,'popular',433),(21,'ANDROID DEVELOPMENT','Mobile android development','12',10000,'http://45.55.171.166:9545/images/android.png',4,NULL,NULL,'popular',765),(22,'MONGO DB','Data management','8',3000,'http://45.55.171.166:9545/images/mongo-db.png',5,NULL,NULL,'popular',322),(23,'ORACLE DBA','Database management','60',43000,'http://45.55.171.166:9545/images/oracle.png',5,NULL,NULL,'popular',111),(24,'MICROSTRATEGY','Training and real time experience','30',30000,'http://45.55.171.166:9545/images/microsthatagy.png',5,NULL,NULL,'popular',987),(25,'SELENIUM','Testing realtime learning','15',15000,'http://45.55.171.166:9545/images/selinum.png',4,NULL,NULL,'popular',211);
+INSERT INTO `xtcourses` VALUES (14,'SAP ABAP','Provides training and Placement','48',12500,'http://54.69.43.76:9545/images/sap.png',5,NULL,NULL,'recommended',340),(15,'PEGA','Pega training','32',43332,'http://54.69.43.76:9545/images/pega.png',4,NULL,NULL,'recommended',230),(16,'HADOOP-ADMINISTRATOR','Hadoop big data training','23',12400,'http://54.69.43.76:9545/images/hadoop-admin.png',5,NULL,NULL,'recommended',430),(17,'JAVA','Java J2EE','54',45000,'http://54.69.43.76:9545/images/java.png',5,NULL,NULL,'recommended',122),(18,'APACHE SPARK AND SCALA','Training and Placement','22',32200,'http://54.69.43.76:9545/images/apachespark.png',5,NULL,NULL,'popular',678),(19,'APACHE CASSANDRA','Developmet and learning','45',23000,'http://54.69.43.76:9545/images/cassandra.png',4,NULL,NULL,'popular',211),(20,'BIG DATA - HADOOP','big data learning','12',12000,'http://54.69.43.76:9545/images/hadoop.png',5,NULL,NULL,'popular',433),(21,'ANDROID DEVELOPMENT','Mobile android development','12',10000,'http://54.69.43.76:9545/images/android.png',4,NULL,NULL,'popular',765),(22,'MONGO DB','Data management','8',3000,'http://54.69.43.76:9545/images/mongo-db.png',5,NULL,NULL,'popular',322),(23,'ORACLE DBA','Database management','60',43000,'http://54.69.43.76:9545/images/oracle.png',5,NULL,NULL,'popular',111),(24,'MICROSTRATEGY','Training and real time experience','30',30000,'http://54.69.43.76:9545/images/microsthatagy.png',5,NULL,NULL,'popular',987),(25,'SELENIUM','Testing realtime learning','15',15000,'http://54.69.43.76:9545/images/selinum.png',4,NULL,NULL,'popular',211);
 /*!40000 ALTER TABLE `xtcourses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,4 +293,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-15  2:42:15
+-- Dump completed on 2015-08-02 16:57:44

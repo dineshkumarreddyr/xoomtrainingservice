@@ -10,14 +10,18 @@
 
 
  exports.getcourselist = function (req, res) {
-    try {
-        common.dbQuery(config.module.dbConfig,'CALL xoomtrainings.SP_GETCOURSES();', function (err, records) {
-            if (!err) {
-                res.send({ "status": "success", "records": records[0] });
-            }
-        });
-    }
-    catch (e) {
-        console.log(e.message);
-    }
-}
+     try {
+         var pool = mysql.createPool(config.module.dbConfig);
+         pool.getConnection(function (err, connection) {
+             connection.query('CALL xoomtrainings.SP_GETCOURSES();', function (err, records) {
+                 connection.release();
+                 if (!err) {
+                     res.send({"status": "success", "records": records[0]});
+                 }
+             });
+         });
+     }
+     catch (e) {
+         console.log(e.message);
+     }
+ };
