@@ -15,7 +15,7 @@ exports.module = {
     },
     dbConfig: {
         host: 'localhost',
-        user: 'sa',
+        user: 'root',
         password: '1234'
     }
 }

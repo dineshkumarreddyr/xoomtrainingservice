@@ -4,6 +4,7 @@
 var express = require('express'),
     mysql = require('mysql'),
     config = require('../globals/config');
+    common = require('../globals/common');
 
 var app = express();
 
@@ -97,6 +98,7 @@ exports.getCountry = function (req, res) {
         var connection = mysql.createConnection(config.module.dbConfig);
         connection.connect();
         connection.query('CALL `xoomtrainings`.`SP_GETCOUNTRY`();', function (error, response) {
+            console.log(error);
             if (!error)
                 res.send({ "status": "success", "records": response[0] });
         });
